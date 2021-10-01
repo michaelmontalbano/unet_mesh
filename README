@@ -1,0 +1,10 @@
+While the main files are here, I have not been able to connect my remote work server to the github just yet. There is a problem with authentification 
+from that computer, so I will soon ask around and get the rest uploaded.
+
+The workflow is:
+```
+python arrange_data.py # filters storms, builds database
+python load_data.py # fills np arrays 'ins' and 'outs' 
+python basic.py     # inherits from u_net.py and trains the model
+```
+From here, data visualization and use of the metrics.py file follows.
