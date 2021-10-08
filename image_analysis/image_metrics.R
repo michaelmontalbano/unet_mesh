@@ -1,5 +1,6 @@
 # Michael Montalbano
 # For use in image verification 
+# Requires pickle_reader.py to initialize environement, open pickle, and manipulate data
 library(reticulate)
 library(SpatialVx)
 library(MBCbook)
@@ -111,6 +112,3 @@ for (i in 0:938) {
 }
 
 write.csv(data,"image_metrics_raw_min.csv",row.names=FALSE,quote=FALSE)
-data[1,1]
-
-info
