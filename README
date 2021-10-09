@@ -1,10 +1,22 @@
-While the main files are here, I have not been able to connect my remote work server to the github just yet. There is a problem with authentification 
-from that computer, so I will soon ask around and get the rest uploaded.
+Here we have a data science project, essentially. 
+It includes:
 
-The workflow is:
-```
-python arrange_data.py # filters storms, builds database
-python load_data.py # fills np arrays 'ins' and 'outs' 
-python basic.py     # inherits from u_net.py and trains the model
-```
-From here, data visualization and use of the metrics.py file follows.
+arrange_data.py to interact with the original data source,
+and filter it for training samples. Here, we arrange the 
+data into a conveniently designed linux filesystem
+
+load_data.py - this... loads the data, taking it from the 
+.netcdfs into numpy arrays. Cleans the data and saves it as .npys
+
+u_net.py - contains the code for the unet
+
+basic.py - runs the experiment, activates the model 
+and saves the results in a pickle file
+
+display.py - provides visual analysis tools, for human subjective
+analysis.
+
+image_metrics.R - loads the python pickle files, which contain the 
+all the training information. We use SpatialVx, a spatial verification
+package, to collect information about the performance of each model.
+
