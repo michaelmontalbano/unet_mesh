@@ -10,7 +10,7 @@ load_data.py - this... loads the data, taking it from the
 
 u_net.py - contains the code for the unet
 
-basic.py - runs the experiment, activates the model 
+train_model.py - runs the experiment, activates the model 
 and saves the results in a pickle file
 
 display.py - provides visual analysis tools, for human subjective
