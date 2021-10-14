@@ -19,6 +19,7 @@ np.set_printoptions(threshold=sys.maxsize)
 
 ins = np.load('ins_raw.npy')
 
+# Here I am creating separate ins for experimentation about model performance and feature importance
 for i in [np.arange(40,22,-1),np.arange(21,17,-1),np.arange(16,11,-1),np.arange(9,-1,-1)]:
     ins = np.delete(ins,i,axis=1)
 # # sys.exit()
@@ -30,8 +31,10 @@ for i in [np.arange(40,22,-1),np.arange(21,17,-1),np.arange(16,11,-1),np.arange(
 print(ins.shape)
 np.save('ins_raw_Min.npy',ins)
 sys.exit()
+# ins: ins_raw_noShear ins_raw_noRef ins_raw ins_raw_noMRMS ins_raw_noNSE ins_raw_RefAndShearAndMESH ins_raw_noMESH ins_noHeight
+
+# Start
 # ins_raw_Min delete np.arange(40,22,-1),np.arange(21,17,-1),np.arange(16,11,-1),np.arange(9,-1,-1)
-# ins_raw_noShear ins_raw_noRef ins_raw ins_raw_noMRMS ins_raw_noNSE ins_raw_RefAndShearAndMESH ins_raw_noMESH ins_noHeight
 # threshold for binarizing MESH
 thres = 29
 
@@ -40,11 +43,8 @@ degrees = ['01.00','02.00','03.00','04.00','05.00','06.00','07.00','08.00','09.0
 NSE_fields = ['MeanShear_0-6km', 'MUCAPE', 'ShearVectorMag_0-1km', 'ShearVectorMag_0-3km', 'ShearVectorMag_0-6km', 'SRFlow_0-2kmAGL', 'SRFlow_4-6kmAGL', 'SRHelicity0-1km', 'SRHelicity0-2km', 'SRHelicity0-3km', 'UWindMean0-6km', 'VWindMean0-6km','Heightof0C','Heightof-20C','Heightof-50C']           # Read in outputs
 multi_fields = ['MergedReflectivityQCComposite_Max_30min','MergedLLShear_Max_30min','MergedMLShear_Max_30min','MergedLLShear_Min_30min','MergedMLShear_Min_30min','MESH_Max_30min','Reflectivity_0C_Max_30min','Reflectivity_-10C_Max_30min','Reflectivity_-20C_Max_30min']
 fields3D = ['MergedReflectivityQC']
-products = multi_fields + fields3D
 products=multi_fields+NSE_fields+fields3D
 cases_df = pd.read_csv('{}/cases_df.csv'.format(DATA_HOME))
-print(products[0:24])
-print(len(multi_fields+NSE_fields))
 sys.exit()
 # scaler
 scaler = open_pickle('scaler.pkl')
