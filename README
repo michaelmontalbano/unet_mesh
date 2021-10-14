@@ -16,7 +16,13 @@ and saves the results in a pickle file
 display.py - provides visual analysis tools, for human subjective
 analysis.
 
-image_metrics.R - loads the python pickle files, which contain the 
+image_analysis/image_metrics.R - loads the python pickle files, which contain the 
 all the training information. We use SpatialVx, a spatial verification
-package, to collect information about the performance of each model.
+package, to collect spatial matching information, and store that in a dataframe 
+which is how we score each model. 
+
+Currently, our best model is the unfiltered, original dataset, containing 
+3700 samples in total. Additionally, we have found that removing sets of fields,
+like NSE, has minor effects on performance. Removing many has a more pronounced effect.
+And, in all, the best model is the one that ingests all the features and uses the most samples.
 
