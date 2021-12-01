@@ -36,6 +36,7 @@ def create_uNet(input_shape, nclasses=2, filters=[64,128,256],
     tensor = BatchNormalization(axis=[1,2])(input_tensor)
     tensor = GaussianNoise(0.1)(tensor)
 
+    # conv2d
     tensor = Convolution2D(filters[0],
                           kernel_size=(3,3),
                           padding='same', 
@@ -47,6 +48,7 @@ def create_uNet(input_shape, nclasses=2, filters=[64,128,256],
 
     tensor = BatchNormalization()(tensor)
 
+    # conv2d_1
     tensor = Convolution2D(filters[0],
                           kernel_size=(3,3),
                           padding='same', 
@@ -76,6 +78,7 @@ def create_uNet(input_shape, nclasses=2, filters=[64,128,256],
     # 30x30
     tensor = BatchNormalization(axis=[1,2])(tensor)
 
+    # conv2d_1
     tensor = Convolution2D(filters[1],
                           kernel_size=(3,3),
                           padding='same', 
@@ -87,6 +90,7 @@ def create_uNet(input_shape, nclasses=2, filters=[64,128,256],
     
     tensor = BatchNormalization()(tensor)
 
+    # conv2d_2
     tensor = Convolution2D(filters[1],
                           kernel_size=(3,3),
                           padding='same', 
