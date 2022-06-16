@@ -14,8 +14,9 @@ from sklearn.model_selection import train_test_split
 from display import *
 np.set_printoptions(threshold=sys.maxsize)
 
-# ins = np.load('ins_filtered_noNSE.npy')
-# sys.exit()
+# multi_fields from index 0 to 8
+# refCube from index 9 to 28
+# NSE from index 29 to 41
 
 ins = np.load('ins_raw.npy')
 
